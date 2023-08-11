@@ -30,11 +30,10 @@ const postUserData = async({name,email,city}:{name:any,email:any,city:any}) => {
   const data  =await axios.post('/api/users',{
     name,email,city
   })
-  console.log("POST Request",data)
 }
 
 const updateUserData = async({id,field,value}:{id:number,field:string|null,value:string})=>{
-  console.log("Inside Update",{id,field,value})
+  
   const data = await axios.patch("/api/users",{
     id,field,value
   })
@@ -42,7 +41,6 @@ const updateUserData = async({id,field,value}:{id:number,field:string|null,value
 }
 
 const deleteUser = async({id}:{id:number}) => {
-   console.log("Inside Delete",id);
    const data = await axios.delete(`/api/users?id=${id}`)
 }
 
@@ -53,7 +51,7 @@ export default function Tables({queryClient}:{queryClient:any}){
   const [city,setCity]  = useState<string | null>('');
   const {mutate} = useMutation(postUserData, {
     onSuccess:(data)=>{
-      console.log(data)
+      
       queryClient.invalidateQueries('users')
     }
   })
@@ -70,12 +68,12 @@ export default function Tables({queryClient}:{queryClient:any}){
   })
 
 const addUser = (name:any,email:any,city:any) => {
-  console.log("InsideAdd user,",email,name,city)
+ 
   mutate({name, email, city})
 }
 
 const deleteUserWithMutate = (id:any) => {
-  console.log("InsideDelete user,",id)
+  
   deleteMutation.mutate({id})
 
 }
@@ -111,25 +109,10 @@ const columns = useMemo<MRT_ColumnDef<User>[]>(
 );
 const handleSaveCell = (cell: MRT_Cell<User>, value: any) => {
   const id = cell.row.original.id;
-  console.log('IDDDDDDDDDDDDDDDDDDD',cell)
   const field = cell.column.id;
   updateMutation.mutate({id,field,value})
 }
 
-// const table = useMantineReactTable({
-//   columns:columns,
-//   data: data.data,
-//   createDisplayMode: 'row',
-//   editDisplayMode:"cell",
-//   enableEditing:true,
-//   mantineEditTextInputProps:({ cell }) => ({
-//     //onBlur is more efficient, but could use onChange instead
-//     onBlur: (event) => {
-//       handleSaveCell(cell, event.target.value);
-//     },
-//   })
-
-// })
 const openDeleteConfirmModal = (row: MRT_Row<User>) =>{
   deleteUserWithMutate(row.original.id)
 }
@@ -155,7 +138,7 @@ const openDeleteConfirmModal = (row: MRT_Row<User>) =>{
       positionActionsColumn="last"
     
       mantineEditTextInputProps={({ cell }) => ({
-            //onBlur is more efficient, but could use onChange instead
+            
             onBlur: (event) => {
               handleSaveCell(cell, event.target.value);
             },
@@ -199,7 +182,7 @@ const openDeleteConfirmModal = (row: MRT_Row<User>) =>{
             
       ]}
     />
-          {/* <Input type="text" placeholder="You City" onChange={(e)=>setCity(e.target.value)}/> */}
+         
       </div>
       </div>
       <div className="flex justify-center items-center ">
