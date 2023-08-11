@@ -1,6 +1,4 @@
-## Bitnine-Signup [![My Skills](https://skillicons.dev/icons?i=ts,tailwind,nextjs,postgres,vercel,react)](https://skillicons.dev)
-
-# The Global Leader of Graph Business Solutions
+## React Table ----- [![My Skills](https://skillicons.dev/icons?i=ts,tailwind,nextjs,postgres,vercel,react)](https://skillicons.dev)
 
 * A table made with Mantine-React-Table, Mantine UI and React Query
 
