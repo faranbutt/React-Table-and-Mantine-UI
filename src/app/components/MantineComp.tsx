@@ -1,0 +1,26 @@
+"use client";
+import React from "react";
+import { MantineProvider } from "@mantine/core";
+import Tables from "./Table/Table";
+import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
+
+const queryClient = new QueryClient();
+
+export default function Comp({ data }: { data: any }) {
+
+  return (
+    <QueryClientProvider client={queryClient}>
+      <MantineProvider
+        withGlobalStyles
+        withNormalizeCSS
+        theme={{  primaryColor: 'red', primaryShade: 5, radius:"2px" }}
+      >
+        <div>
+          {/* @ts-expect-error Server Component */}
+          <Tables queryClient={queryClient}/>
+          
+        </div>
+      </MantineProvider>
+    </QueryClientProvider>
+  );
+}
