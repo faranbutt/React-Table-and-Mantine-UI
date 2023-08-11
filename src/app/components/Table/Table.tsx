@@ -110,7 +110,8 @@ const columns = useMemo<MRT_ColumnDef<User>[]>(
   [],
 );
 const handleSaveCell = (cell: MRT_Cell<User>, value: any) => {
-  const id = cell.row._valuesCache.id;
+  const id = cell.row.original.id;
+  console.log('IDDDDDDDDDDDDDDDDDDD',cell)
   const field = cell.column.id;
   updateMutation.mutate({id,field,value})
 }
