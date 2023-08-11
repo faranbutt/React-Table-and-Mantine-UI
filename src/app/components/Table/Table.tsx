@@ -202,7 +202,7 @@ const openDeleteConfirmModal = (row: MRT_Row<User>) =>{
       </div>
       </div>
       <div className="flex justify-center items-center ">
-        <button className="bg-gradient-to-b from-orange-300 to-red-400 w-32 px-3 py-2 rounded-lg">Add</button>
+        <button className="bg-gradient-to-b from-orange-300 to-red-400 w-32 px-3 py-2 rounded-lg" onClick={()=>postUserData({name,email,city})}>Add</button>
       </div>
       </div>
     </div>
