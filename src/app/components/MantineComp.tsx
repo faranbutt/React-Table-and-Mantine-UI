@@ -15,7 +15,6 @@ export default function Comp({ data }: { data: any }) {
         withNormalizeCSS
       >
         <div>
-          {/* @ts-expect-error Server Component */}
           <Tables queryClient={queryClient}/>
           
         </div>
