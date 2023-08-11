@@ -22,12 +22,12 @@ const Cities = [
 ]
 
 const UserData = async() => {
-  const {data} = await axios.get('http://localhost:3000/api/users')
+  const {data} = await axios.get('/api/users')
   return data;
 }
 
 const postUserData = async({name,email,city}:{name:any,email:any,city:any}) => {
-  const data  =await axios.post('http://localhost:3000/api/users',{
+  const data  =await axios.post('/api/users',{
     name,email,city
   })
   console.log("POST Request",data)
@@ -35,7 +35,7 @@ const postUserData = async({name,email,city}:{name:any,email:any,city:any}) => {
 
 const updateUserData = async({id,field,value}:{id:number,field:string|null,value:string})=>{
   console.log("Inside Update",{id,field,value})
-  const data = await axios.patch("http://localhost:3000/api/users",{
+  const data = await axios.patch("/api/users",{
     id,field,value
   })
   
@@ -43,7 +43,7 @@ const updateUserData = async({id,field,value}:{id:number,field:string|null,value
 
 const deleteUser = async({id}:{id:number}) => {
    console.log("Inside Delete",id);
-   const data = await axios.delete(`http://localhost:3000/api/users?id=${id}`)
+   const data = await axios.delete(`/api/users?id=${id}`)
 }
 
 export default function Tables({queryClient}:{queryClient:any}){
