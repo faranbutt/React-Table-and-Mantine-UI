@@ -13,7 +13,6 @@ export default function Comp({ data }: { data: any }) {
       <MantineProvider
         withGlobalStyles
         withNormalizeCSS
-        theme={{  primaryColor: 'red', primaryShade: 5, radius:"2px" }}
       >
         <div>
           {/* @ts-expect-error Server Component */}
