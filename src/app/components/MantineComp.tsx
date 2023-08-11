@@ -6,7 +6,7 @@ import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
 
 const queryClient = new QueryClient();
 
-export default function Comp({ data }: { data: any }) {
+export default function Comp() {
 
   return (
     <QueryClientProvider client={queryClient}>

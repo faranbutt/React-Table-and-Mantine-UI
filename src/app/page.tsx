@@ -2,13 +2,9 @@
 import Image from 'next/image'
 import axios from 'axios'
 import Comp from './components/MantineComp'
-const UserData = async() => {
-  const {data} = await axios.get('http://localhost:3000/api/users')
-  return data;
-}
+
 
 export default async function Home() {
-  const {data} = await UserData();
   
   return (
     <>
